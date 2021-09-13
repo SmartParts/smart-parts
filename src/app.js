@@ -1,4 +1,4 @@
-require("dotenv").config();  // environment variables
+// require("dotenv").config();  // environment variables
 require("./db/mongoose");
 const path = require("path");
 const express = require("express");
