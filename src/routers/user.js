@@ -123,6 +123,28 @@ router.get("/products/:brand", async (req, res) => {
     res.status(200).send(JSON.stringify(worksheets.Sheet1));  // RESPONSE
 });
 
+// PRODUCT DETAILS BY OEM
+
+router.get("/products/:oem", async (req, res) => {
+    // Read the file into memory
+    const workbook = XLSX.readFile(
+        path.join(__dirname, "../../public/csv/oem/" + req.params.oem + ".csv")
+    );
+
+    // Convert the XLSX to JSON
+    let worksheets = {};
+    for (const sheetName of workbook.SheetNames) {
+        worksheets[sheetName] = XLSX.utils.sheet_to_json(
+            workbook.Sheets[sheetName]
+        );
+    }
+
+    // Show the data as JSON
+    // console.log(JSON.stringify(worksheets.Sheet1));
+
+    res.status(200).send(JSON.stringify(worksheets.Sheet1));  // RESPONSE
+});
+
 // GOOGLE OAUTH
 
 router.get(
