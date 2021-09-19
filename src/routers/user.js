@@ -11,7 +11,7 @@ const shared_data = require("../shared-data/shared-vars");
 const XLSX = require("xlsx");
 
 router.get("/", async (req, res) => {
-    res.status(200).send("File Parsed!"); // res.status(200).redirect("/");
+    res.status(200).send("Home"); // res.status(200).redirect("/");
 });
 
 router.get("/login", (req, res) => {
@@ -106,7 +106,7 @@ router.post("/signup", async (req, res) => {
 router.get("/products/:brand", async (req, res) => {
     // Read the file into memory
     const workbook = XLSX.readFile(
-        path.join(__dirname, "../../public/csv/" + req.params.brand + ".csv")
+        path.join(__dirname, "../../public/csv/brands/" + req.params.brand + ".csv")
     );
 
     // Convert the XLSX to JSON
