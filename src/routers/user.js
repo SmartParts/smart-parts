@@ -103,10 +103,10 @@ router.post("/signup", async (req, res) => {
 
 //  PRODUCT DETAILS BY BRAND
 
-router.get("/products/brand/:brandname", async (req, res) => {
+router.get("/products/vehicle/:brand", async (req, res) => {
     // Read the file into memory
     const workbook = XLSX.readFile(
-        path.join(__dirname, "../../public/csv/brands/" + req.params.brandname + ".csv")
+        path.join(__dirname, "../../public/csv/brands/" + req.params.brand + ".csv")
     );
 
     // Convert the XLSX to JSON
@@ -125,10 +125,10 @@ router.get("/products/brand/:brandname", async (req, res) => {
 
 // PRODUCT DETAILS BY OEM
 
-router.get("/products/oem/:oembrand", async (req, res) => {
+router.get("/products/oem/:brand", async (req, res) => {
     // Read the file into memory
     const workbook = XLSX.readFile(
-        path.join(__dirname, "../../public/csv/oem/" + req.params.oembrand + ".csv")
+        path.join(__dirname, "../../public/csv/oem/" + req.params.brand + ".csv")
     );
 
     // Convert the XLSX to JSON
