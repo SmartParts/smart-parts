@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
 
             res.cookie("jwt", token, {
                 httpOnly: true,
-                secure: false, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
+                secure: true, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
             });
 
             shared_data.user_is_authenticated = true; // FLAG FOR INDICATING WHETHER A USER IS LOGGED IN OR NOT
@@ -88,7 +88,7 @@ router.post("/signup", async (req, res) => {
                 res.cookie("jwt", token, {
                     // CREATING SESSION IN THE BROWSER
                     httpOnly: true,
-                    secure: false, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
+                    secure: true, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
                 });
 
                 shared_data.user_is_authenticated = true;
@@ -161,7 +161,7 @@ router.get(
 
         res.cookie("jwt", token, {
             httpOnly: true,
-            secure: false, // !!!!---- CHANGE IT TO secure: true IN PRODUCTION ----!!!!
+            secure: true, // !!!!---- CHANGE IT TO secure: true IN PRODUCTION ----!!!!
         });
 
         shared_data.user_is_authenticated = true;
@@ -184,7 +184,7 @@ router.get(
 
         res.cookie("jwt", token, {
             httpOnly: true,
-            secure: false, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
+            secure: true, // !!!!!------ MAKE IT secure: true BEFORE HOSTING --------!!!!!!
         });
 
         shared_data.user_is_authenticated = true;
