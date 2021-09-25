@@ -7,7 +7,9 @@ const cookieSession = require("cookie-session");
 const app = express();
 const passport = require("passport");
 const userRouter = require("./routers/user");
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json()); // for parsing application/json
 app.use(cookieParser());
 
@@ -32,7 +34,7 @@ const port = process.env.PORT;
 app.use(userRouter);
 
 app.get("/*", (req, res) => {
-    res.status(404).send("Not Found");  // RENDER THE 404 PAGE
+    res.status(404).send("Not Found"); // RENDER THE 404 PAGE
 });
 
 app.listen(port, function () {
