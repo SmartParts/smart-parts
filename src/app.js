@@ -9,7 +9,11 @@ const passport = require("passport");
 const userRouter = require("./routers/user");
 const cors = require("cors");
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "*",
+    })
+);
 app.use(express.json()); // for parsing application/json
 app.use(cookieParser());
 
